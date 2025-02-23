@@ -21,7 +21,6 @@
     "es-toolkit": "1.32.0",
     "react": "19.0.0",
     "react-dom": "19.0.0",
-    "react-dropzone": "14.3.5",
     "tailwindcss": "4.0.8"
   }
 }
