@@ -11,7 +11,6 @@ type ynabTransaction = {
 };
 
 export function ynabCSV(transactions: Transaction[]): string {
-	console.log(transactions);
 	const ynabTransactions = transactions.map(
 		(tx): ynabTransaction => ({
 			Date: formatDate(tx.date, "yyyy-MM-dd"),
