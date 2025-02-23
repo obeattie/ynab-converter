@@ -1,3 +1,5 @@
+import { useToggle } from "@uidotdev/usehooks";
+import classNames from "classnames";
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { Transaction } from "../transaction";
 import { ynabCSV } from "../writer";
@@ -11,6 +13,7 @@ export default function Converter(converter: ConvertWidgetProps) {
 	const uploadField = useRef<HTMLInputElement>(null);
 	const outputLink = useRef<HTMLAnchorElement>(null);
 	const [output, setOutput] = useState<Blob | null>(null);
+	const [isDragging, toggleDragging] = useToggle();
 
 	const onChange = useCallback(async () => {
 		if (!uploadField.current?.files) return;
@@ -35,16 +38,24 @@ export default function Converter(converter: ConvertWidgetProps) {
 	}, [output]);
 
 	return (
-		<div className="rounded-md bg-slate-800 text-slate-100 p-3 text-center">
+		<div
+			className={classNames(
+				"rounded-md text-slate-100 p-3 text-center relative min-h-24 flex",
+				isDragging ? "bg-slate-500" : "bg-slate-800",
+			)}
+		>
 			<input
 				type="file"
 				accept="text/csv"
 				onChange={onChange}
+				onDragEnter={(e) => toggleDragging(true)}
+				onDragLeave={() => toggleDragging(false)}
+				onDrop={() => toggleDragging(false)}
 				ref={uploadField}
+				className="absolute inset-0 opacity-0"
 			/>
-			<p className="font-bold">{converter.name}</p>
+			<p className="font-bold w-full my-auto">{converter.name}</p>
 			{output && (
-				// biome-ignore lint/a11y/useAnchorContent: this is never seen
 				<a
 					ref={outputLink}
 					href={output ? URL.createObjectURL(output) : "#"}
@@ -52,7 +63,9 @@ export default function Converter(converter: ConvertWidgetProps) {
 						output && `transactions-${converter.name.toLowerCase()}.csv`
 					}
 					className="hidden"
-				/>
+				>
+					Download output
+				</a>
 			)}
 		</div>
 	);
