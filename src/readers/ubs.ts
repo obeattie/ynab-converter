@@ -1,4 +1,6 @@
-import { parse } from "csv-parse/browser/esm/sync";
+import { UTCDate } from "@date-fns/utc";
+import { parse as parseCSV } from "csv-parse/browser/esm/sync";
+import { parse as parseDate } from "date-fns";
 import { zipObject } from "es-toolkit";
 import type { Transaction } from "../transaction";
 import { readBuffer } from "../util";
@@ -9,7 +11,7 @@ export async function readUBSCSV(input: ArrayBuffer): Promise<Transaction[]> {
     .split("\n")
     .findIndex((line) => line === "");
 
-  const csv: string[][] = parse(readBuffer(input), {
+  const csv: string[][] = parseCSV(readBuffer(input), {
     delimiter: ";",
     from_line: blankLine !== -1 ? blankLine + 2 : 0,
   });
@@ -20,7 +22,7 @@ export async function readUBSCSV(input: ArrayBuffer): Promise<Transaction[]> {
     .map((values) => zipObject(headers, values))
     .map(
       (record): Transaction => ({
-        date: new Date(record["Trade date"]),
+        date: parseDate(record["Trade date"], "yyyy-MM-dd", new UTCDate()),
         currency: record.Currency,
         amount: Number.parseFloat(record.Debit || record.Credit),
         balance: Number.parseFloat(record.Balance),
