@@ -35,7 +35,7 @@ export default function Converter(converter: ConverterProps) {
     },
     [converter],
   );
-  const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
+  const { getRootProps, getInputProps, isDragAccept } = useDropzone({ onDrop });
 
   // If there's a file ready to download and it hasn't been auto-downloaded, click the link
   useEffect(() => {
@@ -50,7 +50,7 @@ export default function Converter(converter: ConverterProps) {
       data-converter={converter.name}
       className={classNames(
         "rounded-md text-slate-100 p-3 text-center relative min-h-24 flex",
-        isDragActive ? "bg-slate-500" : "bg-slate-800",
+        isDragAccept ? "bg-slate-500" : "bg-slate-800",
       )}
     >
       <div {...getRootProps()} className="absolute inset-0">
