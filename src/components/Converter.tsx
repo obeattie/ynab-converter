@@ -4,7 +4,7 @@ import { useDropzone } from "react-dropzone";
 import type { Transaction } from "../transaction";
 import { ynabCSV } from "../writer";
 
-export type ConverterF = (input: ArrayBufferLike) => Promise<Transaction[]>;
+export type ConverterF = (input: ArrayBuffer) => Promise<Transaction[]>;
 
 type ConverterProps = {
   name: string;
