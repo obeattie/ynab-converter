@@ -4,7 +4,7 @@ import { readFile } from "node:fs/promises";
 
 test("converts file", async ({ page }) => {
 	await page.goto("/");
-	const input = page.locator('[data-converter="UBS"] > input');
+	const input = page.locator('[data-converter="UBS"] input[type="file"]');
 	await expect(input).toBeVisible();
 	const downloadPromise = page.waitForEvent("download");
 	await input.setInputFiles("testdata/ubs.csv");
