@@ -1,0 +1,15 @@
+Account number:;1234 56789012.34;
+IBAN:;CH12 3456 7890 1234 5678 A;
+From:;2025-01-01;
+Until:;2025-02-25;
+Opening balance:;20000.00;
+Closing balance:;20581.14;
+Valued in:;CHF;
+Numbers of transactions in this period:;5;
+
+Trade date;Trade time;Booking date;Value date;Currency;Debit;Credit;Individual amount;Balance;Transaction no.;Description1;Description2;Description3;Footnotes;
+2025-02-25;;2025-02-25;2025-02-25;CHF;;1500.00;;20700.00;0001234CR20250225;"ACME Corp; 8000 Zurich";e-banking credit;"Reason for payment: Invoice #56789; Transaction no. 0001234CR20250225";;
+2025-02-25;10:15:20;;2025-02-25;CHF;-85.60;;;20581.14;0005678DB101520;MART CAFE             ZURICH;"TXN 98456321; Debit card payment";Transaction no. 0005678DB101520;;
+2025-02-25;12:30:45;;2025-02-25;CHF;-32.75;;;20666.74;0005678DB123045;CITY PARKING         ZURICH;"TXN 87236498; Debit card payment";Transaction no. 0005678DB123045;;
+2025-02-25;14:50:10;;2025-02-25;CHF;-12.45;;;20699.49;0005678DB145010;QUICK SHOP           BERN;"TXN 76859431; Debit card payment";Transaction no. 0005678DB145010;;
+2025-02-25;18:05:55;;2025-02-25;CHF;-19.50;;;20711.94;0005678DB180555;GAS STATION          BASEL;"TXN 65478325; Debit card payment";Transaction no. 0005678DB180555;;

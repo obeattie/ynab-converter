@@ -6,7 +6,7 @@ import { ynabCSV } from "../writer";
 
 export type ConverterF = (input: ArrayBufferLike) => Promise<Transaction[]>;
 
-type ConvertWidgetProps = {
+type ConverterProps = {
 	name: string;
 	f: ConverterF;
 };
@@ -16,7 +16,7 @@ type Output = {
 	downloadTriggered: boolean;
 };
 
-export default function Converter(converter: ConvertWidgetProps) {
+export default function Converter(converter: ConverterProps) {
 	const uploadField = useRef<HTMLInputElement>(null);
 	const outputLink = useRef<HTMLAnchorElement>(null);
 	const [output, setOutput] = useState<Output | null>(null);
@@ -49,6 +49,7 @@ export default function Converter(converter: ConvertWidgetProps) {
 
 	return (
 		<div
+			data-converter={converter.name}
 			className={classNames(
 				"rounded-md text-slate-100 p-3 text-center relative min-h-24 flex",
 				isDragging ? "bg-slate-500" : "bg-slate-800",
