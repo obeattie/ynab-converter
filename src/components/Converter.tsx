@@ -1,3 +1,4 @@
+import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
 import type { ImageMetadata } from "astro";
 import classNames from "classnames";
 import { useCallback, useEffect, useRef, useState } from "react";
@@ -21,6 +22,7 @@ type Output = {
 export default function Converter(converter: ConverterProps) {
   const outputLink = useRef<HTMLAnchorElement>(null);
   const [output, setOutput] = useState<Output | null>(null);
+  const [err, setErr] = useState<string | null>(null);
 
   const onDrop = useCallback(
     async (files: File[]) => {
@@ -28,7 +30,14 @@ export default function Converter(converter: ConverterProps) {
         const input = await file.arrayBuffer();
         return await converter.f(input);
       });
-      const txs = (await Promise.all(txPromises)).flat();
+      setErr(null);
+      let txs: Transaction[];
+      try {
+        txs = (await Promise.all(txPromises)).flat();
+      } catch (error) {
+        setErr(String(error));
+        return;
+      }
       const output = ynabCSV(txs);
       setOutput({
         blob: new Blob([output], { type: "text/csv" }),
@@ -51,20 +60,26 @@ export default function Converter(converter: ConverterProps) {
     <div
       data-converter={converter.name}
       className={classNames(
-        "rounded-md p-3 text-center relative min-h-24 flex shadow text-lg border transition-all",
+        "rounded-md p-3 text-center relative min-h-24 shadow text-lg border transition-all flex flex-col",
         isDragAccept ? "bg-gray-200 border-gray-300" : "bg-white border-transparent hover:border-gray-300",
       )}
     >
       <div {...getRootProps()} className="absolute inset-0 cursor-pointer">
         <input {...getInputProps()} />
       </div>
-      <p className="font-semibold w-full my-auto">
+      <p className="font-semibold my-auto">
         {converter.logo !== undefined ? (
-          <img src={converter.logo.src} alt={converter.name} className="h-8 inline" />
+          <img src={converter.logo.src} alt={converter.name} className="h-8 mx-auto" />
         ) : (
           converter.name
         )}
       </p>
+      {err && (
+        <p className="text-red-500 text-sm font-semibold mt-2">
+          <ExclamationTriangleIcon height="1.5em" className="inline mr-2" />
+          {err}
+        </p>
+      )}
       {output && (
         <a
           ref={outputLink}
