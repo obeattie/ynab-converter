@@ -1,3 +1,4 @@
+import type { ImageMetadata } from "astro";
 import classNames from "classnames";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useDropzone } from "react-dropzone";
@@ -9,6 +10,7 @@ export type ConverterF = (input: ArrayBuffer) => Promise<Transaction[]>;
 export type ConverterProps = {
   name: string;
   f: ConverterF;
+  logo?: ImageMetadata;
 };
 
 type Output = {
@@ -56,7 +58,13 @@ export default function Converter(converter: ConverterProps) {
       <div {...getRootProps()} className="absolute inset-0 cursor-pointer">
         <input {...getInputProps()} />
       </div>
-      <p className="font-semibold w-full my-auto">{converter.name}</p>
+      <p className="font-semibold w-full my-auto">
+        {converter.logo !== undefined ? (
+          <img src={converter.logo.src} alt={converter.name} className="h-8 inline" />
+        ) : (
+          converter.name
+        )}
+      </p>
       {output && (
         <a
           ref={outputLink}
