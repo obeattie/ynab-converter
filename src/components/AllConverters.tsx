@@ -3,18 +3,12 @@ import { readUBSCSV } from "../readers/ubs";
 import { readWiseCSV } from "../readers/wise";
 import Converter from "./Converter";
 
-const converters = {
-  UBS: readUBSCSV,
-  Revolut: readRevolutCSV,
-  Wise: readWiseCSV,
-};
-
 export default function AllConverters() {
   return (
     <>
-      {Object.entries(converters).map(([name, f]) => (
-        <Converter key={name} name={name} f={f} />
-      ))}
+      <Converter name="UBS" f={readUBSCSV} />
+      <Converter name="Revolut" f={readRevolutCSV} />
+      <Converter name="Wise" f={readWiseCSV} />
     </>
   );
 }

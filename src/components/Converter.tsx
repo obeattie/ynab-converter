@@ -6,7 +6,7 @@ import { ynabCSV } from "../writer";
 
 export type ConverterF = (input: ArrayBuffer) => Promise<Transaction[]>;
 
-type ConverterProps = {
+export type ConverterProps = {
   name: string;
   f: ConverterF;
 };
@@ -49,14 +49,14 @@ export default function Converter(converter: ConverterProps) {
     <div
       data-converter={converter.name}
       className={classNames(
-        "rounded-md text-slate-100 p-3 text-center relative min-h-24 flex",
-        isDragAccept ? "bg-slate-500" : "bg-slate-800",
+        "rounded-md p-3 text-center relative min-h-24 flex shadow text-lg border transition-all",
+        isDragAccept ? "bg-gray-200 border-gray-300" : "bg-white border-transparent hover:border-gray-300",
       )}
     >
-      <div {...getRootProps()} className="absolute inset-0">
+      <div {...getRootProps()} className="absolute inset-0 cursor-pointer">
         <input {...getInputProps()} />
       </div>
-      <p className="font-bold w-full my-auto">{converter.name}</p>
+      <p className="font-semibold w-full my-auto">{converter.name}</p>
       {output && (
         <a
           ref={outputLink}

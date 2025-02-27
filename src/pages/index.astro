@@ -8,12 +8,12 @@ import "../styles/global.css";
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<title>YNAB converter</title>
+		<title>YNAB CSV converter</title>
 	</head>
-	<body class="flex h-screen">
+	<body class="flex h-screen bg-gray-100">
 		<div class="container m-auto">
-			<h1 class="text-3xl">Convert for YNAB</h1>
-			<p class="mt-2 mb-6">Drop a file on one of the providers below:</p>
+			<h1 class="text-3xl font-semibold">Convert a bank export for YNAB</h1>
+			<p class="mt-2 mb-6">Download a <span class="font-mono">.csv</span> file from your bank and drop it below. You will get a new <span class="font-mono">.csv</span> which can be imported into YNAB.</p>
 			<div class="grid grid-cols-3 gap-4">
 				<AllConverters client:load />
 			</div>
