@@ -15,7 +15,7 @@
     "@date-fns/utc": "2.1.0",
     "@heroicons/react": "2.2.0",
     "@qnighy/dedent": "0.1.1",
-    "@tailwindcss/vite": "4.0.12",
+    "@tailwindcss/vite": "4.0.13",
     "@types/react": "19.0.10",
     "@types/react-dom": "19.0.4",
     "@uidotdev/usehooks": "2.4.1",
@@ -28,7 +28,7 @@
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "react-dropzone": "14.3.8",
-    "tailwindcss": "4.0.12"
+    "tailwindcss": "4.0.13"
   },
   "devDependencies": {
     "@playwright/test": "1.51.0",
