@@ -17,17 +17,21 @@ export async function readUBSCSV(input: ArrayBuffer): Promise<Transaction[]> {
   });
   const headers = csv[0];
 
-  return csv
-    .slice(1)
-    .map((values) => zipObject(headers, values))
-    .map(
-      (record): Transaction => ({
-        date: parseDate(record["Trade date"], "yyyy-MM-dd", new UTCDate()),
-        currency: record.Currency,
-        amount: Number.parseFloat(record.Debit || record.Credit),
-        balance: Number.parseFloat(record.Balance),
-        payee: record.Description1,
-        memo: record.Description2,
-      }),
-    );
+  return (
+    csv
+      .slice(1)
+      .map((values) => zipObject(headers, values))
+      // Remove uncleared transactions whose amounts may change when they settle (YNAB does not handle this well)
+      .filter((record) => record["Booking date"] !== "")
+      .map(
+        (record): Transaction => ({
+          date: parseDate(record["Trade date"], "yyyy-MM-dd", new UTCDate()),
+          currency: record.Currency,
+          amount: Number.parseFloat(record.Debit || record.Credit),
+          balance: Number.parseFloat(record.Balance),
+          payee: record.Description1,
+          memo: record.Description2,
+        }),
+      )
+  );
 }
