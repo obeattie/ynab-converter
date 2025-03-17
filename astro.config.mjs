@@ -2,6 +2,7 @@
 import { defineConfig } from "astro/config";
 
 import react from "@astrojs/react";
+import vercelStatic from "@astrojs/vercel/static";
 import tailwindcss from "@tailwindcss/vite";
 
 import compress from "astro-compress";
@@ -13,4 +14,12 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
+
+  output: "static",
+  adapter: vercelStatic({
+    webAnalytics: {
+      enabled: true,
+    },
+    imageService: true,
+  }),
 });
