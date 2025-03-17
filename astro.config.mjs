@@ -2,7 +2,7 @@
 import { defineConfig } from "astro/config";
 
 import react from "@astrojs/react";
-import vercelStatic from "@astrojs/vercel/static";
+import vercelStatic from "@astrojs/vercel";
 import tailwindcss from "@tailwindcss/vite";
 
 import compress from "astro-compress";
