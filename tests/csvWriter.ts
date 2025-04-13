@@ -1,8 +1,8 @@
 import { UTCDate } from "@date-fns/utc";
 import { dedent } from "@qnighy/dedent";
 import { expect, test } from "vitest";
+import { ynabCSV } from "../src/csvWriter";
 import type { Transaction } from "../src/transaction";
-import { ynabCSV } from "../src/writer";
 
 test("writer", () => {
   const txs: Transaction[] = [

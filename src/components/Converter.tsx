@@ -3,8 +3,8 @@ import type { ImageMetadata } from "astro";
 import classNames from "classnames";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useDropzone } from "react-dropzone";
+import { ynabCSV } from "../csvWriter";
 import type { Transaction } from "../transaction";
-import { ynabCSV } from "../writer";
 
 export type ConverterF = (input: ArrayBuffer) => Promise<Transaction[]>;
 
