@@ -11,14 +11,16 @@ type ynabTransaction = {
 };
 
 export function ynabCSV(transactions: Transaction[]): string {
-  const ynabTransactions = transactions.map(
-    (tx): ynabTransaction => ({
-      Date: formatDate(tx.date, "yyyy-MM-dd"),
-      Payee: tx.payee,
-      Memo: tx.memo ?? "",
-      Outflow: tx.amount <= 0 ? (-tx.amount).toFixed(2) : "",
-      Inflow: tx.amount > 0 ? tx.amount.toFixed(2) : "",
-    }),
-  );
+  const ynabTransactions = transactions
+    .filter((tx) => tx.cleared)
+    .map(
+      (tx): ynabTransaction => ({
+        Date: formatDate(tx.date, "yyyy-MM-dd"),
+        Payee: tx.payee,
+        Memo: tx.memo ?? "",
+        Outflow: tx.amount <= 0 ? (-tx.amount).toFixed(2) : "",
+        Inflow: tx.amount > 0 ? tx.amount.toFixed(2) : "",
+      }),
+    );
   return stringify(ynabTransactions, { header: true });
 }

@@ -15,6 +15,7 @@ test("reader", async () => {
       date: parseISO("2025-02-20Z"),
       memo: "Salary Payment from ACME Corp",
       payee: "ACME Corp",
+      cleared: true,
     },
     {
       amount: -52.4,
@@ -23,6 +24,7 @@ test("reader", async () => {
       date: parseISO("2025-02-21Z"),
       memo: "Card transaction of 54.80 EUR issued by Bistro Cafe Zurich",
       payee: "Bistro Cafe Zurich",
+      cleared: true,
     },
     {
       amount: -120.9,
@@ -31,6 +33,7 @@ test("reader", async () => {
       date: parseISO("2025-02-22Z"),
       memo: "Card transaction of 130.00 EUR issued by Alpine Gear Bern",
       payee: "Alpine Gear Bern",
+      cleared: true,
     },
     {
       amount: -8.75,
@@ -39,6 +42,7 @@ test("reader", async () => {
       date: parseISO("2025-02-23Z"),
       memo: "Card transaction of 9.50 EUR issued by Train Station Kiosk Geneva",
       payee: "Train Station Kiosk Geneva",
+      cleared: true,
     },
     {
       amount: -27,
@@ -47,6 +51,7 @@ test("reader", async () => {
       date: parseISO("2025-02-24Z"),
       memo: "Card transaction of 29.00 EUR issued by Gas Station Basel",
       payee: "Gas Station Basel",
+      cleared: true,
     },
   ]);
 });

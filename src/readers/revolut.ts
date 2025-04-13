@@ -12,7 +12,6 @@ export async function readRevolutCSV(input: ArrayBuffer): Promise<Transaction[]>
   return csv
     .slice(1)
     .map((values) => zipObject(headers, values))
-    .filter((record) => record.State === "COMPLETED")
     .map(
       (record): Transaction => ({
         date: parseDate(record["Completed Date"], "yyyy-MM-dd HH:mm:ss", new UTCDate()),
@@ -20,6 +19,7 @@ export async function readRevolutCSV(input: ArrayBuffer): Promise<Transaction[]>
         amount: Number.parseFloat(record.Amount) - Number.parseFloat(record.Fee),
         balance: Number.parseFloat(record.Balance),
         payee: record.Description,
+        cleared: record.State === "COMPLETED",
       }),
     );
 }

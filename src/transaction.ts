@@ -7,4 +7,5 @@ export type Transaction = {
   balance: number;
   payee: string;
   memo?: string;
+  cleared: boolean;
 };

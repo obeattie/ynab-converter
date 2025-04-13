@@ -14,6 +14,7 @@ test("reader", async () => {
       amount: 900,
       balance: 1100.5,
       payee: "Payment from John Doe A/o",
+      cleared: true,
     },
     {
       date: parseISO("2025-02-22T09:30:10.000Z"),
@@ -21,6 +22,7 @@ test("reader", async () => {
       amount: -4.5,
       balance: 1096,
       payee: "Coffee House Zurich",
+      cleared: true,
     },
     {
       date: parseISO("2025-02-23T12:20:45.000Z"),
@@ -28,6 +30,7 @@ test("reader", async () => {
       amount: -45.3,
       balance: 1050.7,
       payee: "Supermarket Bern",
+      cleared: true,
     },
     {
       date: parseISO("2025-02-24T14:15:30.000Z"),
@@ -35,6 +38,7 @@ test("reader", async () => {
       amount: -85,
       balance: 965.7,
       payee: "Fuel Station Geneva",
+      cleared: true,
     },
     {
       date: parseISO("2025-02-25T10:50:22.000Z"),
@@ -42,6 +46,7 @@ test("reader", async () => {
       amount: -32.75,
       balance: 932.95,
       payee: "Online Bookstore",
+      cleared: true,
     },
   ]);
 });

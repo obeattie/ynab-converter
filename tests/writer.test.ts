@@ -13,6 +13,7 @@ test("writer", () => {
       balance: 1000,
       payee: "Money Corp",
       memo: "Salary",
+      cleared: true,
     },
     {
       date: new UTCDate(2025, 0, 2),
@@ -21,6 +22,16 @@ test("writer", () => {
       balance: 990,
       payee: "Café",
       memo: "Coffee",
+      cleared: true,
+    },
+    {
+      date: new UTCDate(2025, 0, 2),
+      currency: "CHF",
+      amount: -10,
+      balance: 990,
+      payee: "Café",
+      memo: "Coffee",
+      cleared: false, // should be excluded
     },
   ];
   const csv = ynabCSV(txs);

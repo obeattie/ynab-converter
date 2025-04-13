@@ -20,6 +20,7 @@ export async function readWiseCSV(input: ArrayBuffer): Promise<Transaction[]> {
         balance: Number.parseFloat(record["Running Balance"]),
         payee: record.Merchant,
         memo: record.Description,
+        cleared: true,
       }),
     );
 }

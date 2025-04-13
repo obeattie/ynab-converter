@@ -15,6 +15,7 @@ test("reader", async () => {
       balance: 20700,
       payee: "ACME Corp; 8000 Zurich",
       memo: "e-banking credit",
+      cleared: true,
     },
     {
       date: parseISO("2025-02-25Z"),
@@ -23,6 +24,7 @@ test("reader", async () => {
       balance: 20581.14,
       payee: "MART CAFE             ZURICH",
       memo: "TXN 98456321; Debit card payment",
+      cleared: true,
     },
     {
       date: parseISO("2025-02-25Z"),
@@ -31,6 +33,7 @@ test("reader", async () => {
       balance: 20666.74,
       payee: "CITY PARKING         ZURICH",
       memo: "TXN 87236498; Debit card payment",
+      cleared: true,
     },
     {
       date: parseISO("2025-02-25Z"),
@@ -39,6 +42,7 @@ test("reader", async () => {
       balance: 20699.49,
       payee: "QUICK SHOP           BERN",
       memo: "TXN 76859431; Debit card payment",
+      cleared: true,
     },
     {
       date: parseISO("2025-02-25Z"),
@@ -47,6 +51,7 @@ test("reader", async () => {
       balance: 20711.94,
       payee: "GAS STATION          BASEL",
       memo: "TXN 65478325; Debit card payment",
+      cleared: true,
     },
   ]);
 });
