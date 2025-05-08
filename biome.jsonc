@@ -4,5 +4,12 @@
     "lineWidth": 120,
     "indentWidth": 2,
     "indentStyle": "space"
+  },
+  "linter": {
+    "rules": {
+      "style": {
+        "noNonNullAssertion": "off"
+      }
+    }
   }
 }
