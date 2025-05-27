@@ -17,7 +17,7 @@
     "@heroicons/react": "2.2.0",
     "@qnighy/dedent": "0.1.1",
     "@tailwindcss/vite": "4.1.7",
-    "@types/react": "19.1.5",
+    "@types/react": "19.1.6",
     "@types/react-dom": "19.1.5",
     "@uidotdev/usehooks": "2.4.1",
     "astro": "5.8.0",
