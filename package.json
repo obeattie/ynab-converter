@@ -33,7 +33,7 @@
   },
   "devDependencies": {
     "@playwright/test": "1.53.1",
-    "@types/node": "22.15.33",
+    "@types/node": "22.15.34",
     "vitest": "3.2.4"
   }
 }
