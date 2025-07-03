@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@astrojs/react": "4.3.0",
-    "@astrojs/vercel": "8.2.0",
+    "@astrojs/vercel": "8.2.1",
     "@date-fns/utc": "2.1.0",
     "@heroicons/react": "2.2.0",
     "@qnighy/dedent": "0.1.1",
@@ -20,7 +20,7 @@
     "@types/react": "19.1.8",
     "@types/react-dom": "19.1.6",
     "@uidotdev/usehooks": "2.4.1",
-    "astro": "5.10.2",
+    "astro": "5.11.0",
     "astro-compress": "2.3.8",
     "classnames": "2.5.1",
     "csv": "6.3.11",
