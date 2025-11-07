@@ -11,7 +11,7 @@
     "test:e2e": "playwright test"
   },
   "dependencies": {
-    "@astrojs/react": "4.4.1",
+    "@astrojs/react": "4.4.2",
     "@astrojs/vercel": "9.0.0",
     "@date-fns/utc": "2.1.1",
     "@heroicons/react": "2.2.0",
@@ -20,7 +20,7 @@
     "@types/react": "19.2.2",
     "@types/react-dom": "19.2.2",
     "@uidotdev/usehooks": "2.4.1",
-    "astro": "5.15.3",
+    "astro": "5.15.4",
     "astro-compress": "2.3.8",
     "classnames": "2.5.1",
     "csv": "6.4.1",
