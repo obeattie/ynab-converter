@@ -21,7 +21,7 @@
     "@types/react-dom": "19.2.3",
     "@uidotdev/usehooks": "2.4.1",
     "astro": "6.0.4",
-    "astro-compress": "2.3.9",
+    "astro-compress": "2.4.0",
     "classnames": "2.5.1",
     "csv": "6.4.1",
     "date-fns": "4.1.0",
