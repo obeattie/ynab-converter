@@ -23,7 +23,7 @@
     "astro": "6.4.6",
     "astro-compress": "2.4.1",
     "classnames": "2.5.1",
-    "csv": "6.5.1",
+    "csv": "6.6.0",
     "date-fns": "4.4.0",
     "es-toolkit": "1.47.1",
     "react": "19.2.7",
