@@ -28,7 +28,7 @@
     "es-toolkit": "1.50.0",
     "react": "19.2.8",
     "react-dom": "19.2.8",
-    "react-dropzone": "17.0.0",
+    "react-dropzone": "19.2.0",
     "tailwindcss": "4.3.3"
   },
   "devDependencies": {
