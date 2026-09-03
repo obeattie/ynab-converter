@@ -18,7 +18,7 @@
     "@qnighy/dedent": "0.1.1",
     "@tailwindcss/vite": "4.3.3",
     "@types/react": "19.2.18",
-    "@types/react-dom": "19.2.4",
+    "@types/react-dom": "19.2.7",
     "@uidotdev/usehooks": "2.4.1",
     "astro": "7.2.0",
     "astro-compress": "2.4.2",
