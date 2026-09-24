@@ -11,7 +11,7 @@
     "test:e2e": "playwright test"
   },
   "dependencies": {
-    "@astrojs/react": "6.0.2",
+    "@astrojs/react": "7.0.0",
     "@astrojs/vercel": "11.0.5",
     "@date-fns/utc": "2.1.1",
     "@heroicons/react": "2.2.0",
